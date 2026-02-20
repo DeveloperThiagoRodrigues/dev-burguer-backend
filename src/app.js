@@ -13,15 +13,8 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(
-  '/product-file',
-  express.static(path.resolve(__dirname, '..', 'uploads/products'))
-);
-
-app.use(
-  '/category-file',
-  express.static(path.resolve(__dirname, '..', 'uploads/categories'))
-);
+app.use('/product-file', fileRouteConfig);
+app.use('/category-file', fileRouteConfig);
 
 
 app.use(routes);
