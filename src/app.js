@@ -6,9 +6,13 @@ import 'dotenv/config';
 
 const app = express();
 
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cors({
+  origin: process.env.CORS_ORIGIN,
+}));
+
 app.use('/product-file', fileRouteConfig);
 app.use('/category-file', fileRouteConfig);
 
