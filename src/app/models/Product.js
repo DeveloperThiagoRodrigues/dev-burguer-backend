@@ -9,7 +9,7 @@ class Product extends Model {
             url: {
                 type: Sequelize.VIRTUAL,
                 get(){
-                    return `https://devburguer-backend.1e7gn0.easypanel.host/${this.path}`;
+                    return `${process.env.APP_URL}/category-file/${this.path};
                 }
             }
         }, {
