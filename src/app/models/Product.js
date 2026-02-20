@@ -9,7 +9,7 @@ class Product extends Model {
             url: {
                 type: Sequelize.VIRTUAL,
                 get(){
-                    return `${process.env.APP_URL}/category-file/${this.path}`;
+                    return `${process.env.APP_URL}/product-file/${this.path}`;
                 }
             }
         }, {
