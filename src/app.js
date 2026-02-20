@@ -4,19 +4,19 @@ import fileRouteConfig from './config/fileRoutes.cjs';
 import cors from 'cors';
 import 'dotenv/config';
 
-const app = express();
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-app.use(cors({
-  origin: process.env.CORS_ORIGIN,
-}));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// 👇 SERVIR UPLOADS
+app.use(
+  '/product-file',
+  express.static(path.resolve(__dirname, '..', 'uploads/products'))
+);
 
-app.use('/product-file', fileRouteConfig);
-app.use('/category-file', fileRouteConfig);
-
-
-app.use(routes);
-
-export default app;
+app.use(
+  '/category-file',
+  express.static(path.resolve(__dirname, '..', 'uploads/categories'))
+);
