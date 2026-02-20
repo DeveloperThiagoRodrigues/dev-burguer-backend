@@ -6,10 +6,9 @@ import UserController from './app/controllers/UserController.js';
 import multerConfig from './config/multer.cjs';
 import authMiddleware from './app/middlewares/auth.js';
 import CategoryController from './app/controllers/CategoryController.js';
-<<<<<<< HEAD
+
 import adminMiddleware from './app/middlewares/admin.js';
-=======
->>>>>>> 8b87eda (programming logic change)
+
 import OrderController from './app/controllers/OrderController.js';
 import CreatePaymentIntentController from './app/controllers/stripe/CreatePaymentIntentController.js';
 
@@ -22,17 +21,17 @@ routes.post("/users", UserController.store);
 routes.post("/sessions", SessionController.store);
 
 routes.use(authMiddleware);
-<<<<<<< HEAD
+
 
 
 routes.post('/products', adminMiddleware, uploads.single('file'), ProductController.store);
 routes.put('/products/:id', adminMiddleware, uploads.single('file'), ProductController.update);
 routes.get('/products',  ProductController.index);
-=======
+
 routes.post("/products", upload.single("file"), ProductController.store);
 routes.get("/products", ProductController.index);
 routes.put("/products/:id", upload.single("file"), ProductController.update);
->>>>>>> 8b87eda (programming logic change)
+
 
 routes.post("/categories", upload.single("file"), CategoryController.store);
 routes.get("/categories", CategoryController.index);
