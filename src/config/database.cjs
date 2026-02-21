@@ -1,4 +1,4 @@
-console.log('DEBUG DB_USER:', process.env.DB_USER)
+
 
 module.exports = {
   dialect: 'postgres',
