@@ -10,3 +10,5 @@ module.exports = {
     underscored: true,
     underscoredAll: true,
   },
+
+  console.log('DEBUG DB_USER:', process.env.DB_USER)
