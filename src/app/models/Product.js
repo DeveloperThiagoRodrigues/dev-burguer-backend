@@ -7,11 +7,11 @@ class Product extends Model {
             path: Sequelize.STRING,
             offer: Sequelize.BOOLEAN,
             url: {
-  type: Sequelize.VIRTUAL,
-  get() {
-    return `${process.env.APP_URL}/product-file/${this.path}`;
-  }
-}
+                type: Sequelize.VIRTUAL,
+                get(){
+                    return `http://localhost:3001/product-file/${this.path}`;
+                }
+            }
         }, {
             sequelize,
             tableName: 'products'
