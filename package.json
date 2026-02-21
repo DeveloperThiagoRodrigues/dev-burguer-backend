@@ -1,16 +1,12 @@
 {
-    "name": "backend",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "type": "module",
   "main": "src/server.js",
   "scripts": {
-    "start": "npx sequelize-cli db:migrate && node ./src/server.js",
-    "build": "echo 'Build skip'"
+    "start": "node ./src/server.js",
+    "migrate": "sequelize-cli db:migrate"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
