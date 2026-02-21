@@ -7,36 +7,24 @@ import { fileURLToPath } from 'url';
 
 const app = express();
 
-// Corrige __dirname no ESModules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Middlewares básicos
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/*
-========================================
- SERVIR ARQUIVOS ESTÁTICOS (IMAGENS)
-========================================
+// 📦 Pasta real das imagens
+const uploadsPath = path.resolve(__dirname, '..', 'uploads');
 
-Todos os arquivos dentro de /uploads
-ficam acessíveis via:
+// 🆕 Nova rota padrão
+app.use('/uploads', express.static(uploadsPath));
 
-https://SEU_BACKEND/uploads/NOME_DO_ARQUIVO.png
+// 🧠 Compatibilidade com URLs antigas do projeto
+app.use('/product-file', express.static(uploadsPath));
+app.use('/category-file', express.static(uploadsPath));
 
-Exemplo:
-https://devburguer-backend.../uploads/db605cfa-...-burger_3.png
-*/
-
-app.use(
-  '/uploads',
-  express.static(path.resolve(__dirname, '..', 'uploads'))
-);
-
-// Suas rotas normais da API
+// Suas rotas da API
 app.use(routes);
 
-// Export obrigatório
 export default app;
