@@ -4,7 +4,8 @@ import routes from './routes.js';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import authMiddleware from './app/middlewares/auth.js'; // 👈 importa aqui
+// 🗑️ REMOVE essa linha:
+// import authMiddleware from './app/middlewares/auth.js';
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -19,4 +20,6 @@ app.use('/product-file', express.static(uploadsPath));
 app.use('/category-file', express.static(uploadsPath));
 app.use('/uploads', express.static(uploadsPath));
 
-app.use(routes); // authMiddleware já está dentro do routes.js na ordem certa
+app.use(routes);
+
+export default app;
