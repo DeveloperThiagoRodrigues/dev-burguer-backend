@@ -14,17 +14,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// 📦 Pasta real das imagens
+// 👇 CAMINHO REAL DAS IMAGENS NO CONTAINER
 const uploadsPath = path.resolve(__dirname, '..', 'uploads');
 
-// 🆕 Nova rota padrão
-app.use('/uploads', express.static(uploadsPath));
-
-// 🧠 Compatibilidade com URLs antigas do projeto
+// 👇 SERVE ESSA PASTA DIRETAMENTE
 app.use('/product-file', express.static(uploadsPath));
 app.use('/category-file', express.static(uploadsPath));
+app.use('/uploads', express.static(uploadsPath));
 
-// Suas rotas da API
 app.use(routes);
 
 export default app;
