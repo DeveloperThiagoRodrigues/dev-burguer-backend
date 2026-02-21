@@ -1,9 +1,8 @@
-import 'dotenv/config';
-import express from 'express';
-import routes from './routes.js';
-import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import express from "express";
+import cors from "cors";
+import routes from "./routes.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 
@@ -15,15 +14,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(
-  '/product-file',
-  express.static(path.resolve(__dirname, '..', 'uploads/products'))
+  "/product-file",
+  express.static(path.resolve(__dirname, "..", "uploads"))
 );
 
 app.use(
-  '/category-file',
-  express.static(path.resolve(__dirname, '..', 'uploads/categories'))
+  "/category-file",
+  express.static(path.resolve(__dirname, "..", "uploads"))
 );
 
 app.use(routes);
 
-export default app;   // 👈 ESSA LINHA É OBRIGATÓRIA
+export default app;
