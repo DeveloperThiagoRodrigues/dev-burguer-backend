@@ -1,3 +1,5 @@
+console.log('DEBUG DB_USER:', process.env.DB_USER)
+
 module.exports = {
   dialect: 'postgres',
   host: process.env.DB_HOST || 'localhost',
@@ -11,4 +13,3 @@ module.exports = {
     underscoredAll: true,
   },
 
-  console.log('DEBUG DB_USER:', process.env.DB_USER)
