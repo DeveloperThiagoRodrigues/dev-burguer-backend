@@ -8,6 +8,7 @@ const authMiddleware = (request, response, next) => {
     request.path === '/favicon.ico'
   ) {
     return next();
+  
   }
 
   const authToken = request.headers.authorization;
