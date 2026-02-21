@@ -6,7 +6,7 @@
    "start": "node ./src/server.js",
   "build": "echo 'Build skip'",
   "postinstall": "npx sequelize-cli db:migrate"
-}
+
   },
   
    
