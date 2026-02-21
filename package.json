@@ -28,7 +28,7 @@
     "yup": "^1.7.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.11",
-    "sequelize-cli": "^6.6.5"
+    "dependencies": {
+  "sequelize-cli": "^6.6.5",
   }
 }
