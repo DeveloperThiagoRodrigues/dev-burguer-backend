@@ -1,18 +1,24 @@
-FROM node:20-alpine
+# Etapa 1: build
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
-
-COPY package.json ./
-
+COPY package*.json ./
 RUN npm install
 
 COPY . .
 
-RUN mkdir -p /app/uploads
+# Declara e recebe o ARG
+ARG VITE_BASE_URL
+ENV VITE_BASE_URL=$VITE_BASE_URL
 
-VOLUME ["/app/uploads"]
+RUN npm run build
 
-EXPOSE 3001
+# Etapa 2: servidor
+FROM nginx:alpine
 
-CMD npx sequelize-cli db:migrate && npm run start
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
