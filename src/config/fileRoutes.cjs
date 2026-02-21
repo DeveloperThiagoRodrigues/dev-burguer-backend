@@ -1,6 +1,8 @@
-const { resolve } = require('path')
-const express = require('express')
+const { resolve } = require('node:path');
+const express = require('express');
 
-const uploadPath = resolve(process.cwd(), 'uploads')
+const uploadPath = resolve(process.cwd(), 'uploads');
 
-module.exports = express.static(uploadPath)
+const fileRouteConfig = express.static(uploadPath);
+
+module.exports = fileRouteConfig;
