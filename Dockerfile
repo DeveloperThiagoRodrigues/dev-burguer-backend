@@ -8,9 +8,6 @@ RUN npm install
 
 COPY . .
 
-# Declara e recebe o ARG
-ARG VITE_BASE_URL
-ENV VITE_BASE_URL=$VITE_BASE_URL
 
 RUN npm run build
 
