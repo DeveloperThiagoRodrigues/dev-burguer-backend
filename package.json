@@ -4,9 +4,12 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "dev": "node --watch src/server.js",
-    "start": "node ./src/server.js"
+    "start": "npx sequelize-cli db:migrate && node ./src/server.js",
+    "build": "echo 'No build needed for this backend'"
   },
+  
+   
+}
   "keywords": [],
   "author": "",
   "license": "ISC",
