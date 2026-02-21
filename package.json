@@ -7,7 +7,7 @@
   "build": "echo 'Build skip'",
   "postinstall": "npx sequelize-cli db:migrate"
 
-  },
+  }
   
    
 }
