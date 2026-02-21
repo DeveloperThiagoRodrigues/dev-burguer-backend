@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
-  "scripts": {
-    "start": "npx sequelize-cli db:migrate && node ./src/server.js",
-    "build": "echo 'No build needed for this backend'"
+   "start": "node ./src/server.js",
+  "build": "echo 'Build skip'",
+  "postinstall": "npx sequelize-cli db:migrate"
+}
   },
   
    
