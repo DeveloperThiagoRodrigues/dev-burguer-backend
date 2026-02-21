@@ -24,7 +24,4 @@
     "uuid": "^13.0.0",
     "yup": "^1.7.1"
   }
-  "devDependencies": {
-    "@biomejs/biome": "2.3.11"
-  }
-}
+
