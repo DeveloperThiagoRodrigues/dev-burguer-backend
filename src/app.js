@@ -1,24 +1,15 @@
-import 'dotenv/config';
 import express from 'express';
 import routes from './routes.js';
+import fileRouteConfig from './config/fileRoutes.cjs';
 import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from 'url';
-// 🗑️ REMOVE essa linha:
-// import authMiddleware from './app/middlewares/auth.js';
 
 const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-const uploadsPath = path.resolve(__dirname, '..', 'uploads');
-app.use('/product-file', express.static(uploadsPath));
-app.use('/category-file', express.static(uploadsPath));
-app.use('/uploads', express.static(uploadsPath));
+app.use('/product-file', fileRouteConfig);
+app.use('/category-file', fileRouteConfig);
 
 app.use(routes);
 
