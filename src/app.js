@@ -15,15 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const uploadsPath = path.resolve(__dirname, '..', 'uploads');
-
-// Estáticos PRIMEIRO — sem auth
 app.use('/product-file', express.static(uploadsPath));
 app.use('/category-file', express.static(uploadsPath));
 app.use('/uploads', express.static(uploadsPath));
 
-// Auth aplicado DEPOIS dos estáticos
-app.use(authMiddleware); // 👈 aqui, antes das rotas
-
-app.use(routes);
-
-export default app;
+app.use(routes); // authMiddleware já está dentro do routes.js na ordem certa
