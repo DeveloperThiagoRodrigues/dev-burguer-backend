@@ -4,8 +4,9 @@
   "type": "module",
   "main": "src/server.js",
   "scripts": {
-    "start": "node ./src/server.js",
-    "migrate": "sequelize-cli db:migrate"
+  "start": "node src/server.js",
+  "migrate": "sequelize-cli db:migrate"
+}
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
