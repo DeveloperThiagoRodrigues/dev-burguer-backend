@@ -5,25 +5,32 @@ import cors from 'cors';
 
 const app = express();
 
-// ✅ libera frontend do easypanel e localhost
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'https://dev-burguer-devburger-frontend.1e7gn0.easypanel.host'
+];
+
 app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:3000',
-    'https://dev-burguer-devburger-frontend.1e7gn0.easypanel.host'
-  ],
-  methods: ['GET','POST','PUT','DELETE','PATCH'],
-  allowedHeaders: ['Content-Type','Authorization']
+  origin: function (origin, callback) {
+    // permite requisição sem origin (postman, mobile, etc)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(null, true); // libera tudo (produção simples)
+    }
+  },
+  credentials: true
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// arquivos estáticos
 app.use('/product-file', fileRouteConfig);
 app.use('/category-file', fileRouteConfig);
 
-// rotas da API
 app.use(routes);
 
 export default app;
