@@ -22,7 +22,7 @@ class UserController {
         
 
 
-        const { name, email, password, admin } = request.body;
+        const { name, email, password, admin = false } = request.body;
 
         const existingUser = await User.findOne({
             where: { 
