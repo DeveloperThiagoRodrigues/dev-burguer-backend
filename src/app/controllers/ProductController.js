@@ -32,8 +32,7 @@ const product = await Product.create({
   path: filename, // ✅ provavelmente o campo é "path" no model
 });
 
-    return response.status(201).json(newProduct);
-  }
+return response.status(201).json(product); // ✅ era "newProduct" (inexistente)
 
   async update(request, response) {
     const schema = Yup.object({
