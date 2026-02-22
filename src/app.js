@@ -4,6 +4,7 @@ import fileRouteConfig from './config/fileRoutes.cjs';
 import cors from 'cors';
 
 const app = express();
+app.set('trust proxy', 1);
 
 app.use(cors({
   origin: [
@@ -22,3 +23,4 @@ app.use('/category-file', fileRouteConfig);
 app.use(routes);
 
 export default app;
+
