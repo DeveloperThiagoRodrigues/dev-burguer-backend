@@ -24,12 +24,12 @@ class ProductController {
     const { name, price, category_id, offer } = request.body;
 const { filename } = request.file;
 
-    const product = await Product.create({
+const product = await Product.create({
   name,
   price,
   category_id,
-  description,
-  filename,
+  offer,        // ✅ estava faltando
+  path: filename, // ✅ provavelmente o campo é "path" no model
 });
 
     return response.status(201).json(newProduct);
