@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 3001
 
-CMD ["sh", "-c", "npx sequelize-cli db:migrate && npm run start"]
+CMD ["sh", "-c", "npx sequelize-cli db:migrate && exec node src/server.js"]
