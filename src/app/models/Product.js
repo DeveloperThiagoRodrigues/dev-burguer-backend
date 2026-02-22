@@ -8,9 +8,9 @@ class Product extends Model {
             offer: Sequelize.BOOLEAN,
             url: {
                 type: Sequelize.VIRTUAL,
-                get(){
-                    return `http://localhost:3001/product-file/${this.path}`;
-                }
+                get() {
+  return `${process.env.APP_URL}/product-file/${this.path}`;
+}
             }
         }, {
             sequelize,
