@@ -5,14 +5,12 @@ import cors from 'cors';
 
 const app = express();
 
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://dev-burguer-devburger-frontend.1e7gn0.easypanel.host'
-];
-
 app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
+  origin: [
+    'http://localhost:5173',
+    'https://dev-burguer-devburger-frontend.1e7gn0.easypanel.host'
+  ],
+  credentials: true
 }));
 
 app.use(express.json());
